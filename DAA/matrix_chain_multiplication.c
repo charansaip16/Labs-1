@@ -1,19 +1,18 @@
 #include<stdio.h>
-
 #define INFY 999999999
 long int m[20][20];
 int s[20][20];
 int p[20],i,j,n;
 void print_optimal(int i, int j)
 {
-  if (i == j)
-		 printf(" A%d ",i);
+	if (i == j)
+		printf(" A%d ",i);
 	else
 	{
-    	printf(" ( ");
-    	print_optimal(i, s[i][j]);
-		  print_optimal(s[i][j] + 1, j);
-		  printf(" ) ");
+    		printf(" ( ");
+    		print_optimal(i, s[i][j]);
+		print_optimal(s[i][j] + 1, j);
+		printf(" ) ");
 	}
 }
 
@@ -24,10 +23,10 @@ void matmultiply(void)
 	for(i=n;i>0;i--)
 	{
 		for(j=i;j<=n;j++)
-	    {
-		    if(i==j)
+	    	{
+		 	if(i==j)
 				m[i][j]=0;
-			else
+		    	else
 			{	
 				for(k=i;k<j;k++)
 				{
