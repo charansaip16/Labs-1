@@ -16,15 +16,13 @@ int main(){
 	if(sum<d)
 	{
 		printf("No solution\n");
-		getch();
-		return;
+		return 0;
 	}
 	subset(0,0,sum);
 	if(count==0)
 	{
 		printf("No solution\n");
-		getch(); 
-		return;
+		return 0;
 	}
 }
 void subset(int cs,int k,int r)
