@@ -1,10 +1,10 @@
 #include<stdio.h>
-#include<math.h>
+#include<stdlib.h>
 int a[30],count=0;
 int place(int pos) {
 	int i;
 	for (i=1;i<pos;i++) {
-		if((a[i]==a[pos])||((abs(a[i]-a[pos])==abs(i-pos))))
+		if((a[i]==a[pos])|| (abs(a[i]-a[pos]) == abs(i-pos)))
 		   return 0;
 	}
 	return 1;
@@ -30,7 +30,7 @@ void queen(int n)
 {
 	int k=1;
 	a[k]=0;
-	while(k!=0) 
+	while(k) 
 	{
 		a[k]=a[k]+1;
 		while((a[k]<=n)&&!place(k))
@@ -52,8 +52,8 @@ void queen(int n)
 int main() 
 {
 	int i,n;
-	printf("Enter the number of Queens\n");
+	printf("Enter the number of Queens  : ");
 	scanf("%d",&n);
 	queen(n);
-	printf("\nTotal solutions=%d",count);
+	printf("\nTotal solutions   : %d",count);
 }
