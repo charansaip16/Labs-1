@@ -9,41 +9,51 @@ int place(int pos) {
 	}
 	return 1;
 }
-void print_sol(int n) {
+void print_sol(int n) 
+{
 	int i,j;
 	count++;
 	printf("\n\nSolution #%d:\n",count);
-	for (i=1;i<=n;i++) {
-		for (j=1;j<=n;j++) {
+	for (i=1;i<=n;i++) 
+	{
+		for (j=1;j<=n;j++) 
+		{
 			if(a[i]==j)
-			    printf("Q\t"); else
+			    printf("Q\t"); 
+			else
 			    printf("*\t");
 		}
 		printf("\n");
 	}
 }
-void queen(int n) {
+void queen(int n) 
+{
 	int k=1;
 	a[k]=0;
-	while(k!=0) {
+	while(k!=0) 
+	{
 		a[k]=a[k]+1;
 		while((a[k]<=n)&&!place(k))
 		   a[k]++;
-		if(a[k]<=n) {
+		if(a[k]<=n) 
+		{
 			if(k==n)
-			    print_sol(n); else {
+			    print_sol(n);
+			else 
+			{
 				k++;
 				a[k]=0;
 			}
-		} else
+		} 
+		else
 		   k--;
 	}
 }
-int main() {
+int main() 
+{
 	int i,n;
 	printf("Enter the number of Queens\n");
 	scanf("%d",&n);
 	queen(n);
 	printf("\nTotal solutions=%d",count);
-	getch();
 }
