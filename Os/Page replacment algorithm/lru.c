@@ -3,20 +3,20 @@
 int main()
 {
 	int i,j,k,min,rs[25],m[10],count[10],flag[25],n,f,pf=0,next=1; 
-	printf("Enter the length of reference string -- ");
+	printf("Enter the length of reference string	: ");
 	scanf("%d",&n);
-	printf("Enterthereferencestring--");
+	printf("Enter the reference string	:");
 	for(i=0;i<n;i++)
 	{
 		scanf("%d",&rs[i]); flag[i]=0;
 	}
-		printf("Enter the number of frames -- ");
+		printf("Enter the number of frames	:");
 		scanf("%d",&f);
 		for(i=0;i<f;i++)
 		{
 			count[i]=0; m[i]=-1;
 		}
-		printf("\nThe PageReplacement processis--\n");
+		printf("\nThe Page Replacement processis\n");
 		for(i=0;i<n;i++)
 		{
 			for(j=0;j<f;j++)
