@@ -1,11 +1,10 @@
 #include<stdio.h>
 #include<conio.h>
 #include<string.h>
-void main()
+int main()
 {
 	int nf=0,i=0,j=0,ch;
 	char mdname[10],fname[10][10],name[10];
-	clrscr();
 	printf("Enter the directory name:");
 	scanf("%s",mdname);
 	printf("Enter the number of files:");
@@ -30,9 +29,10 @@ void main()
 		scanf("%d",&ch);
 	}
 	while(ch==1);
-	("Directory name is:%s\n",mdname);
+	
+	printf("Directory name is:%s\n",mdname);
+	
 	printf("Files names are:");
 	for(i=0;i<j;i++)
-	printf("\n%s",fname[i]);
-	getch();
+		printf("\n%s",fname[i]);
 }
