@@ -1,1 +1,0 @@
-# diabtes-detection-using-ml
