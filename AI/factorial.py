@@ -1,6 +1,5 @@
 def factorial(x):
 	fact=1
-	float(fact)
 	while x!=0:
 		fact=fact*x
 		x=x-1
