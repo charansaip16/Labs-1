@@ -36,7 +36,6 @@ for x in mytuple:
 
 #slicing 
 s=[10,20,20,30]
-list[s]
 print(s[0])
 
 del s[-1]
