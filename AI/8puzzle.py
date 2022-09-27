@@ -76,7 +76,7 @@ class Puzzle:
         temp = 0
         for i in range(0,self.n):
             for j in range(0,self.n):
-                if start[i][j] != goal[i][j] and start[i][j] != '_':
+                if start[i][j] != goal[i][j] and start[i][j] != '0':
                     temp += 1
         return temp
         
