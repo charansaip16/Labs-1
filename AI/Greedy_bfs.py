@@ -1,78 +1,41 @@
-from collections import deque
-class Graph:
-    def __init__(self, adjac_lis):
-        self.adjac_lis = adjac_lis
- 
-    def get_neighbors(self, v):
-        return self.adjac_lis[v]
-    def h(self, n):
-        H = {
-            'A': 1,
-            'B': 1,
-            'C': 1,
-            'D': 1
-        }
- 
-        return H[n]
- 
-    def a_star_algorithm(self, start, stop):
-        open_lst = set([start])
-        closed_lst = set([])
-        poo = {}
-        poo[start] = 0
-        par = {}
-        par[start] = start
- 
-        while len(open_lst) > 0:
-            n = None
-            for v in open_lst:
-                if n == None or poo[v] + self.h(v) < poo[n] + self.h(n):
-                    n = v;
- 
-            if n == None:
-                print('Path does not exist!')
-                return None
-            if n == stop:
-                reconst_path = []
- 
-                while par[n] != n:
-                    reconst_path.append(n)
-                    n = par[n]
- 
-                reconst_path.append(start)
- 
-                reconst_path.reverse()
- 
-                print('Path found: {}'.format(reconst_path))
-                return reconst_path
-            for (m, weight) in self.get_neighbors(n):
-                if m not in open_lst and m not in closed_lst:
-                    open_lst.add(m)
-                    par[m] = n
-                    poo[m] = poo[n] + weight
-                else:
-                    if poo[m] > poo[n] + weight:
-                        poo[m] = poo[n] + weight
-                        par[m] = n
- 
-                        if m in closed_lst:
-                            closed_lst.remove(m)
-                            open_lst.add(m)
-            open_lst.remove(n)
-            closed_lst.add(n)
- 
-        print('Path does not exist!')
-        return None
+from queue import PriorityQueue
+v=14
+graph=[[] for i in range(v)]
+def BestFS(src,target,n):
+ visited=[False]*n
+ pq=PriorityQueue()
+ pq.put((0,src))
+ visited[src]=True
 
-adjac_lis={
-    'A':[('B',0),('C',0),('D',0)],
-    'B':[('D',0)],
-    'C':[('D',0)]
-    
-}
-graph1=Graph(adjac_lis)
-graph1.a_star_algorithm('A','D')
+ while pq.empty()==False:
+     u=pq.get()[1]
+     print(u,end=" ")
+     if u==target:
+        break
+     for v,c in graph[u]:
+       if visited[v]==False:
+         visited[v]=True
+         pq.put((c,v))
+     print()
 
+def addedge(x,y,cost):
+ graph[x].append((y,cost))
+ graph[y].append((x,cost))
 
-
-
+addedge(0,1,3)
+addedge(0,2,6)
+addedge(0,3,5)
+addedge(1,4,9)
+addedge(1,5,8)
+addedge(2,6,12)
+addedge(2,7,14)
+addedge(3,8,7)
+addedge(8,9,5)
+addedge(8,10,6)
+addedge(9,11,1)
+addedge(9,12,1)
+addedge(9,12,10)
+addedge(9,13,2)
+source=0
+target=9
+BestFS(source,target,v)
